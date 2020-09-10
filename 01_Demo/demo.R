@@ -29,3 +29,11 @@ wide_table <- long_table %>% spread(key="Metric",value="Score")
 wide_table <- wide_table[,order(colnames(wide_table))]
 demo_table3 <- demo_table3[,order(colnames(demo_table3))]
 all.equal(demo_table3,wide_table)
+
+plt <- ggplot(mpg,aes(x=class)) #import dataset into ggplot2
+plt + geom_bar() #plot a bar plot
+
+mpg_summary <- mpg %>% group_by(manufacturer) %>% summarize(Vehicle_Count=n()) #create summary table
+plt <- ggplot(mpg_summary,aes(x=manufacturer,y=Vehicle_Count)) #import dataset into ggplot2
+plt + geom_col() #plot a bar plot
+
