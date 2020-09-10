@@ -60,3 +60,23 @@ plt + geom_point() + labs(x="Engine Size (L)", y="City Fuel-Efficiency (MPG)", c
 plt <- ggplot(mpg,aes(x=displ,y=cty,color=class,shape=drv,size=cty)) #import dataset into ggplot2
 plt + geom_point() + labs(x="Engine Size (L)", y="City Fuel-Efficiency (MPG)", color="Vehicle Class",
                           shape="Type of Drive", size= "City MPG") #add scatter plot with multiple aesthetics
+
+plt <- ggplot(mpg,aes(y=hwy)) #import dataset into ggplot2
+plt + geom_boxplot() #add boxplot
+
+plt <- ggplot(mpg,aes(x=manufacturer,y=hwy)) #import dataset into ggplot2
+plt + geom_boxplot() + theme(axis.text.x=element_text(angle=45,hjust=1)) #add boxplot and rotate x-axis labels 45 degrees
+
+plt <- ggplot(mpg,aes(x=manufacturer,y=hwy, color=manufacturer, linetype="dotdash")) #import dataset into ggplot2
+plt + geom_boxplot() + theme(axis.text.x=element_text(angle=45,hjust=1)) #add boxplot and rotate x-axis labels 45 degrees
+
+mpg_summary <- mpg %>% group_by(class,year) %>% summarize(Mean_Hwy=mean(hwy)) #create summary table
+plt <- ggplot(mpg_summary, aes(x=class,y=factor(year),fill=Mean_Hwy))
+plt + geom_tile() + labs(x="Vehicle Class",y="Vehicle Year",fill="Mean Highway (MPG)") #create heatmap with labels 
+
+mpg_summary <- mpg %>% group_by(model,year) %>% summarize(Mean_Hwy=mean(hwy)) #create summary table
+plt <- ggplot(mpg_summary, aes(x=model,y=factor(year),fill=Mean_Hwy)) #import dataset into ggplot2
+plt + geom_tile() + labs(x="Model",y="Vehicle Year",fill="Mean Highway (MPG)") + #add heatmap with labels 
+  theme(axis.text.x = element_text(angle=90,hjust=1,vjust=.5)) #rotate x-axis labels 90 degrees
+
+  
