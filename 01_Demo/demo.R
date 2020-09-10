@@ -37,3 +37,6 @@ mpg_summary <- mpg %>% group_by(manufacturer) %>% summarize(Vehicle_Count=n()) #
 plt <- ggplot(mpg_summary,aes(x=manufacturer,y=Vehicle_Count)) #import dataset into ggplot2
 plt + geom_col() #plot a bar plot
 
+plt + geom_col() + xlab("Manufacturing Company") + ylab("Number of Vehicles in Dataset") + #plot bar plot with labels
+theme(axis.text.x=element_text(angle=45,hjust=1)) #rotate the x-axis label 45 degrees
+
