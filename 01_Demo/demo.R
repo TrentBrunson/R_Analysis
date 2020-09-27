@@ -108,4 +108,4 @@ plt + geom_boxplot() + facet_wrap(vars(manufacturer)) + #create multiple boxplot
   theme(axis.text.x=element_text(angle=45,hjust=1),legend.position = "none") + xlab("Manufacturer") #rotate x-axis labels
 
 ggplot(mtcars,aes(x=wt)) + geom_density() #visualize distribution using density plot
-shapiro.test(mtcars$wt)
+shapiro.test(mtcars$wt) #p-value is greater than 0.05, the data is considered normally distributed
