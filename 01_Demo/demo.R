@@ -106,3 +106,5 @@ plt + geom_boxplot() + facet_wrap(vars(MPG_Type)) + #create multiple boxplot cha
 plt <- ggplot(mpg_long,aes(x=manufacturer,y=Rating,color=MPG_Type)) #import dataset into ggplot2
 plt + geom_boxplot() + facet_wrap(vars(manufacturer)) + #create multiple boxplots, one for each MPG type
   theme(axis.text.x=element_text(angle=45,hjust=1),legend.position = "none") + xlab("Manufacturer") #rotate x-axis labels
+
+ggplot(mtcars,aes(x=wt)) + geom_density() #visualize distribution using density plot
