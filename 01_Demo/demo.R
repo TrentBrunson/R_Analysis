@@ -109,3 +109,7 @@ plt + geom_boxplot() + facet_wrap(vars(manufacturer)) + #create multiple boxplot
 
 ggplot(mtcars,aes(x=wt)) + geom_density() #visualize distribution using density plot
 shapiro.test(mtcars$wt) #p-value is greater than 0.05, the data is considered normally distributed
+
+population_table <- read.csv('used_car_data.csv',check.names = F,stringsAsFactors = F) #import used car dataset
+plt <- ggplot(population_table,aes(x=log10(Miles_Driven))) #import dataset into ggplot2
+plt + geom_density() #visualize distribution using density plot
