@@ -123,5 +123,6 @@ plt + geom_density() #visualize distribution using density plot
 
 # Two basic ways to check that our sample data is representative of the underlying population: 
 # a qualitative assessment of each density plot or a quantitative statistical test such as the one-sample t-test
+t.test(log10(sample_table$Miles_Driven),mu=mean(log10(population_table$Miles_Driven))) #compare sample versus population means
 
 
