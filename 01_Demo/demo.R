@@ -113,3 +113,15 @@ shapiro.test(mtcars$wt) #p-value is greater than 0.05, the data is considered no
 population_table <- read.csv('used_car_data.csv',check.names = F,stringsAsFactors = F) #import used car dataset
 plt <- ggplot(population_table,aes(x=log10(Miles_Driven))) #import dataset into ggplot2
 plt + geom_density() #visualize distribution using density plot
+
+# distribution of raw mileage is right skewed-a few used vehicles have more than 100,000 miles, 
+# while the majority of used vehicles have less than 50,000 miles. 
+# The log10 transformation makes mileage data more normal
+sample_table <- population_table %>% sample_n(50) #randomly sample 50 data points
+plt <- ggplot(sample_table,aes(x=log10(Miles_Driven))) #import dataset into ggplot2
+plt + geom_density() #visualize distribution using density plot
+
+# Two basic ways to check that our sample data is representative of the underlying population: 
+# a qualitative assessment of each density plot or a quantitative statistical test such as the one-sample t-test
+
+
