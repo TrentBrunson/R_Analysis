@@ -125,4 +125,7 @@ plt + geom_density() #visualize distribution using density plot
 # a qualitative assessment of each density plot or a quantitative statistical test such as the one-sample t-test
 t.test(log10(sample_table$Miles_Driven),mu=mean(log10(population_table$Miles_Driven))) #compare sample versus population means
 
+sample_table <- population_table %>% sample_n(50) #generate 50 randomly sampled data points
+sample_table2 <- population_table %>% sample_n(50) #generate another 50 randomly sampled data points
 
+t.test(log10(sample_table$Miles_Driven),log10(sample_table2$Miles_Driven)) #compare means of two samples
