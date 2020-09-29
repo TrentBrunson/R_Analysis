@@ -184,3 +184,8 @@ plt + geom_point() + geom_line(aes(y=yvals), color = "red") #plot scatter and li
 # as independent variables to multiple linear regression model.
 lm(qsec ~ mpg + disp + drat + wt + hp,data=mtcars) #generate multiple linear regression model
 summary(lm(qsec ~ mpg + disp + drat + wt + hp,data=mtcars)) #generate summary statistics
+
+# build X-squared analysis
+table(mpg$class,mpg$year) #generate contingency table
+tbl <- table(mpg$class,mpg$year) #generate contingency table
+chisq.test(tbl) #compare categorical distributions
