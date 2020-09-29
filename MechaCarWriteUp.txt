@@ -1,0 +1,28 @@
+provide a small writeup of your interpretation of the multiple linear regression results. Be sure to include the following details:
+Which variables/coefficients provided a non-random amount of variance to the mpg values in the dataset?
+Is the slope of the linear model considered to be zero? Why or why not?
+Does this linear model predict mpg of MechaCar prototypes effectively? Why or why not?
+
+
+
+provide a short write-up of your interpretation and findings for the suspension coil summary statistics. Be sure to include the following details:
+The design specifications for the MechaCar suspension coils dictate that the variance 
+of the suspension coils must not exceed 100 pounds per inch. 
+Does the current manufacturing data meet this design specification? 
+Why or why not?
+
+data:  Suspension_Coil_Table$PSI
+t = -0.65784, df = 149, p-value = 0.5117
+alternative hypothesis: true mean is not equal to 1500
+95 percent confidence interval:
+ 1498.122 1500.940
+sample estimates:
+mean of x 
+ 1499.531
+
+
+Write a short description of a statistical study that can quantify how the MechaCar outperforms the competition. In your study design, be sure to write about the following considerations:
+
+Think critically about what metrics you would think would be of interest to a consumer (cost, fuel efficiency, color options, etc.).
+Determine what question we would ask, what the null and alternative hypothesis would be to answer that question, and what statistical test could be used to test this hypothesis.
+Knowing what test should be used, what data should be collected?

@@ -27,3 +27,12 @@ head(Suspension_Coil_Table)
 Suspension_Summary <- Suspension_Coil_Table %>% summarize(Mean= mean(PSI), Median= median(PSI), Variance= var(PSI), Std_Dev= sd(PSI))
 Suspension_Summary
 
+# determine if the suspension coil's pound-per-inch results are 
+# statistically different from the mean population results of 1,500 pounds per inch
+# group suspension coil data by lot
+Suspension_by_Lot <- Suspension_Coil_Table %>% group_by(Manufacturing_Lot) %>% 
+  summarise(Mean= mean(PSI), Median= median(PSI), Variance= var(PSI), Std_Dev= sd(PSI))
+Suspension_by_Lot
+
+# Run t-test to see if this data set differs from the populations mean of 1500 ppi
+t.test(Suspension_Coil_Table$PSI, mu = 1500)
