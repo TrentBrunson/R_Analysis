@@ -159,3 +159,18 @@ head(used_cars)
 
 plt <- ggplot(used_cars,aes(x=Miles_Driven,y=Selling_Price)) #import dataset into ggplot2
 plt + geom_point() #create a scatter plot
+cor(used_cars$Miles_Driven,used_cars$Selling_Price) #calculate correlation coefficient
+
+# To produce a correlation matrix for our used_cars dataset
+# first need to select our numeric columns from  data frame and convert to a matrix
+used_matrix <- as.matrix(used_cars[,c("Selling_Price","Present_Price","Miles_Driven")]) #convert data frame into numeric matrix
+cor(used_matrix)
+
+# linear regression model
+lm(qsec ~ hp,mtcars) #create linear model
+summary(lm(qsec~hp,mtcars)) #summarize linear model
+
+# plot linear regression model
+model <- lm(qsec ~ hp,mtcars) #create linear model
+#determine y-axis values from linear model
+yvals <- model$coefficients['hp']*mtcars$hp + model$coefficients['(Intercept)'] 
