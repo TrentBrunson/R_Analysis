@@ -1,15 +1,47 @@
-provide a small writeup of your interpretation of the multiple linear regression results. Be sure to include the following details:
-Which variables/coefficients provided a non-random amount of variance to the mpg values in the dataset?
-Is the slope of the linear model considered to be zero? Why or why not?
-Does this linear model predict mpg of MechaCar prototypes effectively? Why or why not?
+MechaCar Fuel Efficiency Analysis
+
+MechaCar provided data for a number prototype vehicles and requestd an analysis to predict
+which factors would affect fuel efficiency (miles per gallon).
+
+Overall, with the data given, the prediction of fuel efficiency is not ideal.
+This conclusion was reached by first running a multilinear regression model.  Assuming a probability factor of .05, 
+vehicle length and ground clearance provided a non-random amount of variance.
+That is to say, they have a significant impact on fuel efficiency of the vehicle (miles per gallon).
+Since the slope is 0.71, that is a positive slope with a fairly strong correlation 
+indicating that it fits the data well.
+
+Furthermore, the y-intercept is statistically significant.  This means there are other
+variables and factors that contribute to the variation.  Couple this with the fact that only
+two variables were found to be significant contributors to fuel efficiency, 
+this requires asking other questions that were not asked or represented by the original dataset. 
+
+Suspension coil analysis
 
 
-
-provide a short write-up of your interpretation and findings for the suspension coil summary statistics. Be sure to include the following details:
 The design specifications for the MechaCar suspension coils dictate that the variance 
 of the suspension coils must not exceed 100 pounds per inch. 
 Does the current manufacturing data meet this design specification? 
 Why or why not?
+
+The variance of the suspension coils in all lots does not exceed 100 pounds per inch.  
+The variance in the data was 76.23.
+
+      Mean   Median Variance  Std_Dev
+1 1499.531 1499.747 76.23459 8.731242
+
+However, one of the three lots was out of tolerance.  
+Lot 3 had a variance of 220 pounds per inch.  Further questions need to be asked about
+this lots manufacturing.  Address the 5Ws (where, when, what was used, who, etc.) as well
+as gather other facts about that lot compared to the other two.
+
+1 Lot1              1500.  1500.     1.15    1.07
+2 Lot2              1500.  1499.    10.1     3.18
+3 Lot3              1499.  1498.   220.     14.8 
+
+
+Next, an evaluation was run to see if the suspension coil’s pound-per-inch results are 
+statistically different from the mean population results of 1,500 pounds per inch.  
+Running a t-test comparing the suspension coil data to the population mean returned:
 
 data:  Suspension_Coil_Table$PSI
 t = -0.65784, df = 149, p-value = 0.5117
@@ -20,9 +52,33 @@ sample estimates:
 mean of x 
  1499.531
 
+Using a statistical significance level of 0.05, the probability-value of 0.51 is much 
+larger than the threshold.  Therefore, the null hypothesis saying there is no statistical
+difference between the sample the population is sound.  The two means are statistically similar.
 
-Write a short description of a statistical study that can quantify how the MechaCar outperforms the competition. In your study design, be sure to write about the following considerations:
+A future statistical analysis that could be used by MechaCar to outperform the competition would include 
+customer-driven factors such as:
+Fuel-efficiency
+Data connectivity options (Wifi, Bluetooth, satellite, etc.)
+IIHS safety rating
+Cost
+And the always important number of cup holders
 
-Think critically about what metrics you would think would be of interest to a consumer (cost, fuel efficiency, color options, etc.).
-Determine what question we would ask, what the null and alternative hypothesis would be to answer that question, and what statistical test could be used to test this hypothesis.
-Knowing what test should be used, what data should be collected?
+These factors are important due to the financial significance of purchasing a car.  There are operating
+costs like fuel efficiency to consider.  Also, performance, particularly safety performance is underpinned
+by numerous consumer protection acts that have established agencies charged with oversight of automobile
+safety.  Lastly, there has been a joke for years about cup holder ratios; prove this or disprove this once
+and for all in the multilinear regression analysis.
+
+The ultimate question to answer is, "What car features/factors sway car buyers the most?"
+
+The null hypothesis is that the factors selected are most important to the consumer.
+The alternative hypothesis is that there are factors more important to the consumer than those selected.
+
+A multilinear regression analysis of the quantifiable (numerical) data from the new dataset would help
+tease out where there are strong correlations between features and sales conversions.  Collect data on
+the features in car purchases, car models, as well as purchase price.
+
+Also gathering data about the frequency of requests or actual sales with or without a specific
+data connectivity technology would be useful.  A chi-squared test could be used to compare the
+distribution of frequencies across the two groups.

@@ -12,11 +12,11 @@
 library(tidyverse)
 
 MechaCar_MPG_Table <- read.csv('MechaCar_mpg.csv',check.names=T)
-View(MechaCar_Suspension_Table)
 
 head(MechaCar_MPG_Table) #check out data in table
 
 # use multilinear regression model to check out probability values
+lm(mpg ~ vehicle.length + vehicle.weight + spoiler.angle + ground.clearance + AWD, data = MechaCar_MPG_Table)
 summary(lm(mpg ~ vehicle.length + vehicle.weight + spoiler.angle + ground.clearance + AWD, data = MechaCar_MPG_Table))
 
 # Import suspension coil data
