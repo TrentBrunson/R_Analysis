@@ -19,4 +19,11 @@ head(MechaCar_MPG_Table) #check out data in table
 # use multilinear regression model to check out probability values
 summary(lm(mpg ~ vehicle.length + vehicle.weight + spoiler.angle + ground.clearance + AWD, data = MechaCar_MPG_Table))
 
+# Import suspension coil data
+Suspension_Coil_Table <- read.csv('Suspension_Coil.csv')
+head(Suspension_Coil_Table)
+
+# summarize suspension coil stat data
+Suspension_Summary <- Suspension_Coil_Table %>% summarize(Mean= mean(PSI), Median= median(PSI), Variance= var(PSI), Std_Dev= sd(PSI))
+Suspension_Summary
 
