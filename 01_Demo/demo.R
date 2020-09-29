@@ -174,3 +174,13 @@ summary(lm(qsec~hp,mtcars)) #summarize linear model
 model <- lm(qsec ~ hp,mtcars) #create linear model
 #determine y-axis values from linear model
 yvals <- model$coefficients['hp']*mtcars$hp + model$coefficients['(Intercept)'] 
+
+plt <- ggplot(mtcars,aes(x=hp,y=qsec)) #import dataset into ggplot2
+plt + geom_point() + geom_line(aes(y=yvals), color = "red") #plot scatter and linear model
+
+# From last example, determined that quarter-mile time was not adequately predicted from just horsepower. 
+#  better predict  quarter-mile time (qsec) dependent variable, add other variables of interest such as 
+#  fuel efficiency (mpg), engine size (disp), rear axle ratio (drat), vehicle weight (wt), and horsepower (hp) 
+# as independent variables to multiple linear regression model.
+lm(qsec ~ mpg + disp + drat + wt + hp,data=mtcars) #generate multiple linear regression model
+summary(lm(qsec ~ mpg + disp + drat + wt + hp,data=mtcars)) #generate summary statistics
