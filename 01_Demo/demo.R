@@ -145,3 +145,17 @@ aov(hp ~ cyl,data=mtcars_filt) #compare means across multiple levels
 
 # wrapping ANOVA test in statistical function
 summary(aov(hp ~ cyl,data=mtcars_filt))
+
+# determine correlation between variables
+
+# determine correlation between HP & quarter mile time
+plt <- ggplot(mtcars,aes(x=hp,y=qsec)) #import dataset into ggplot2
+plt + geom_point() #create scatter plot
+cor(mtcars$hp,mtcars$qsec) #calculate correlation coefficient
+
+# see if any correlation between mileage and used car sale price
+used_cars <- read.csv('used_car_data.csv',stringsAsFactors = F) #read in dataset
+head(used_cars)
+
+plt <- ggplot(used_cars,aes(x=Miles_Driven,y=Selling_Price)) #import dataset into ggplot2
+plt + geom_point() #create a scatter plot
